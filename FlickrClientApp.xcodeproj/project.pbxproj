@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0630C89FF5C2C7A97840F54D /* Pods_FlickrClientApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9430985E6D6E5A22F2C00CE /* Pods_FlickrClientApp.framework */; };
+		55040B4729077EA10015B83F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55040B4629077EA10015B83F /* NetworkManager.swift */; };
 		5588C8B12906B9C6007FEB03 /* PhotosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5588C8B02906B9C6007FEB03 /* PhotosResponse.swift */; };
 		5588C8B32906BA00007FEB03 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5588C8B22906BA00007FEB03 /* Photos.swift */; };
 		5588C8B52906BD02007FEB03 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5588C8B42906BD01007FEB03 /* Photo.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		076B7699E4358D901879732D /* Pods-FlickrClientApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrClientApp.debug.xcconfig"; path = "Target Support Files/Pods-FlickrClientApp/Pods-FlickrClientApp.debug.xcconfig"; sourceTree = "<group>"; };
+		55040B4629077EA10015B83F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5588C8B02906B9C6007FEB03 /* PhotosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosResponse.swift; sourceTree = "<group>"; };
 		5588C8B22906BA00007FEB03 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		5588C8B42906BD01007FEB03 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -61,6 +63,31 @@
 				B8B905FFDB8DD194FAFCD5F9 /* Pods-FlickrClientApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		55040B4329077E790015B83F /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				5597D9572906231E00186A2D /* AppDelegate.swift */,
+				5597D9592906231E00186A2D /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		55040B4429077E830015B83F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				55040B4529077E8A0015B83F /* Networking */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		55040B4529077E8A0015B83F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				55040B4629077EA10015B83F /* NetworkManager.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		5588C8AF2906B9B1007FEB03 /* Model */ = {
@@ -133,8 +160,8 @@
 		5597D96E290623F000186A2D /* App */ = {
 			isa = PBXGroup;
 			children = (
-				5597D9572906231E00186A2D /* AppDelegate.swift */,
-				5597D9592906231E00186A2D /* SceneDelegate.swift */,
+				55040B4429077E830015B83F /* Core */,
+				55040B4329077E790015B83F /* Delegates */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -305,6 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55040B4729077EA10015B83F /* NetworkManager.swift in Sources */,
 				5588C8B52906BD02007FEB03 /* Photo.swift in Sources */,
 				5597D9702906392100186A2D /* PhotoTableViewCell.swift in Sources */,
 				5597D95C2906231E00186A2D /* RecentPhotosTableViewController.swift in Sources */,

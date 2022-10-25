@@ -11,9 +11,14 @@ class RecentPhotosTableViewController: UITableViewController, UISearchResultsUpd
     
     private var response: PhotosRersponse? {
         didSet {
-            tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
         }
     }
+    
+    private var selectedPhoto: Photo?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +27,7 @@ class RecentPhotosTableViewController: UITableViewController, UISearchResultsUpd
     }
     
     private func fetchRecentPhotos() {
-        guard let url = URL(string: "https://www.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=6f890008043d60b079d83bbf4b0aa763&format=json&nojsoncallback=1&extras=description,license,date_upload,date_taken,owner_name,icon_server,original_format,last_update,geo,tags,machine_tags,o_dims,views,media,path_alias,url_sq,url_t,url_s,url_q,url_m,url_n,url_z,url_c,url_l,url_o") else { return }
+        guard let url = URL(string: "https://www.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=6f890008043d60b079d83bbf4b0aa763&format=json&nojsoncallback=1&extras=description,owner_name,icon_server,url_n,url_z") else { return }
         
         let request = URLRequest(url: url)
         
@@ -38,7 +43,7 @@ class RecentPhotosTableViewController: UITableViewController, UISearchResultsUpd
     }
     
     private func searchPhotos(with text: String) {
-        guard let url = URL(string: "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=6f890008043d60b079d83bbf4b0aa763&text=flower&format=json&nojsoncallback=1&extras=description,license,date_upload,date_taken,owner_name,icon_server,original_format,last_update,geo,tags,machine_tags,o_dims,views,media,path_alias,url_sq,url_t,url_s,url_q,url_m,url_n,url_z,url_c,url_l,url_o") else { return }
+        guard let url = URL(string: "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=6f890008043d60b079d83bbf4b0aa763&text=\(text)&format=json&nojsoncallback=1&extras=description,owner_name,icon_server,url_n,url_z") else { return }
         let request = URLRequest(url: url)
         
         URLSession.shared.dataTask(with: request) { data, response, error in
@@ -69,7 +74,17 @@ class RecentPhotosTableViewController: UITableViewController, UISearchResultsUpd
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PhotoTableViewCell
         cell.profileImageView.backgroundColor = .darkGray
         cell.profileLabel.text = photo?.ownername
-        cell.mainImageView.backgroundColor = .gray
+        
+        //profileImage add
+        
+        NetworkManager.shared.fetchImage(with: photo?.bodyIconUrl) { data in
+            cell.profileImageView.image = UIImage(data: data)
+        }
+        
+        NetworkManager.shared.fetchImage(with: photo?.urlN) { data in
+            cell.mainImageView.image = UIImage(data: data)
+        }
+        
         cell.titleLabel.text = photo?.title
         
         return cell
@@ -78,18 +93,16 @@ class RecentPhotosTableViewController: UITableViewController, UISearchResultsUpd
     //when select the row will work this method
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedPhoto = response?.photos?.photo?[indexPath.row]
         performSegue(withIdentifier: "toPhotoDetail", sender: nil)
     }
     
     
     // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        // FIXME: Fix warning
+        
         if let viewController = segue.destination as? PhotoDetailViewController {
-            // TODO: Show selected image in deetail view
+            viewController.photo = selectedPhoto
         }
     }
     
