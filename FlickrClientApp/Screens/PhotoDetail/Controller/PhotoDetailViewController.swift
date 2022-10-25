@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LoremIpsum
 
 
 class PhotoDetailViewController: UIViewController {
@@ -21,7 +22,8 @@ class PhotoDetailViewController: UIViewController {
         detailMainImageView.backgroundColor = .gray
         detailProfileImageView.backgroundColor = .darkGray
         detailProfileNameLabel.text = "Profile name"
-        detailDescriptionLabel.text = "Lorem impsum"
+        detailDescriptionLabel.text = LoremIpsum.paragraph
+        detailDescriptionLabel.lineBreakMode = .byWordWrapping
     }
     
 

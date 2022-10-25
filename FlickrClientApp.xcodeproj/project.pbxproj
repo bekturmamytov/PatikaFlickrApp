@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0630C89FF5C2C7A97840F54D /* Pods_FlickrClientApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9430985E6D6E5A22F2C00CE /* Pods_FlickrClientApp.framework */; };
+		5588C8B12906B9C6007FEB03 /* PhotosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5588C8B02906B9C6007FEB03 /* PhotosResponse.swift */; };
+		5588C8B32906BA00007FEB03 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5588C8B22906BA00007FEB03 /* Photos.swift */; };
+		5588C8B52906BD02007FEB03 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5588C8B42906BD01007FEB03 /* Photo.swift */; };
 		5597D9582906231E00186A2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5597D9572906231E00186A2D /* AppDelegate.swift */; };
 		5597D95A2906231E00186A2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5597D9592906231E00186A2D /* SceneDelegate.swift */; };
 		5597D95C2906231E00186A2D /* RecentPhotosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5597D95B2906231E00186A2D /* RecentPhotosTableViewController.swift */; };
@@ -21,6 +24,9 @@
 
 /* Begin PBXFileReference section */
 		076B7699E4358D901879732D /* Pods-FlickrClientApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrClientApp.debug.xcconfig"; path = "Target Support Files/Pods-FlickrClientApp/Pods-FlickrClientApp.debug.xcconfig"; sourceTree = "<group>"; };
+		5588C8B02906B9C6007FEB03 /* PhotosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosResponse.swift; sourceTree = "<group>"; };
+		5588C8B22906BA00007FEB03 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		5588C8B42906BD01007FEB03 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		5597D9542906231E00186A2D /* FlickrClientApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrClientApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5597D9572906231E00186A2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5597D9592906231E00186A2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,8 +60,17 @@
 				076B7699E4358D901879732D /* Pods-FlickrClientApp.debug.xcconfig */,
 				B8B905FFDB8DD194FAFCD5F9 /* Pods-FlickrClientApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		5588C8AF2906B9B1007FEB03 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5588C8B02906B9C6007FEB03 /* PhotosResponse.swift */,
+				5588C8B22906BA00007FEB03 /* Photos.swift */,
+				5588C8B42906BD01007FEB03 /* Photo.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		5597D94B2906231E00186A2D = {
@@ -98,6 +113,7 @@
 		5597D96C290623C700186A2D /* RecentPhotos */ = {
 			isa = PBXGroup;
 			children = (
+				5588C8AF2906B9B1007FEB03 /* Model */,
 				5597D9752906499900186A2D /* Controller */,
 				5597D9742906498F00186A2D /* View */,
 			);
@@ -289,11 +305,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5588C8B52906BD02007FEB03 /* Photo.swift in Sources */,
 				5597D9702906392100186A2D /* PhotoTableViewCell.swift in Sources */,
 				5597D95C2906231E00186A2D /* RecentPhotosTableViewController.swift in Sources */,
 				5597D9582906231E00186A2D /* AppDelegate.swift in Sources */,
+				5588C8B12906B9C6007FEB03 /* PhotosResponse.swift in Sources */,
 				5597D9732906491500186A2D /* PhotoDetailViewController.swift in Sources */,
 				5597D95A2906231E00186A2D /* SceneDelegate.swift in Sources */,
+				5588C8B32906BA00007FEB03 /* Photos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
